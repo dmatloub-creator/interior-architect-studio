@@ -11,13 +11,13 @@ The agent **interviews the designer first** (design-intake) to lock intent befor
 In PowerShell:
 ```powershell
 # One-liner (after this repo is on GitHub):
-irm https://raw.githubusercontent.com/<owner>/<repo>/main/scripts/studio-bootstrap.ps1 | iex
+irm https://raw.githubusercontent.com/dmatloub-creator/interior-architect-studio/main/scripts/studio-bootstrap.ps1 | iex
 
 # …or clone and run with options:
-git clone https://github.com/<owner>/<repo>.git
-powershell -ExecutionPolicy Bypass -File .\<repo>\scripts\studio-bootstrap.ps1 `
+git clone https://github.com/dmatloub-creator/interior-architect-studio.git
+powershell -ExecutionPolicy Bypass -File .\interior-architect-studio\scripts\studio-bootstrap.ps1 `
   -StudioRoot "C:\Users\<you>\Desktop\Interior_Design_Projects" `
-  -MarketplaceRepo "<owner>/<repo>"
+  -MarketplaceRepo "dmatloub-creator/interior-architect-studio"
 ```
 This auto-installs (via winget) Git, Node.js, uv, **Blender**, **FreeCAD**; installs and
 configures the **Blender MCP** add-on (auto-start on :9876) and the **FreeCAD MCP** add-on
@@ -25,7 +25,7 @@ configures the **Blender MCP** add-on (auto-start on :9876) and the **FreeCAD MC
 
 ### 2. Finish inside Cowork (can't be scripted)
 ```
-/plugin marketplace add <owner>/<repo>
+/plugin marketplace add dmatloub-creator/interior-architect-studio
 /plugin install interior-architect-studio@matloubian-studio
 ```
 - Enable the **Blender**, **FreeCAD**, and **Adobe** connectors in Cowork settings.

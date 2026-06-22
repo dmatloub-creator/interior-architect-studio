@@ -18,15 +18,15 @@
   Skip winget app installation (configure only).
 
 .EXAMPLE
-  # One-liner on a fresh machine (after pushing this repo to GitHub):
-  #   irm https://raw.githubusercontent.com/<owner>/<repo>/main/scripts/studio-bootstrap.ps1 | iex
+  # One-liner on a fresh machine:
+  #   irm https://raw.githubusercontent.com/dmatloub-creator/interior-architect-studio/main/scripts/studio-bootstrap.ps1 | iex
   # Or download and run:
   #   powershell -ExecutionPolicy Bypass -File .\studio-bootstrap.ps1
 #>
 [CmdletBinding()]
 param(
   [string]$StudioRoot = (Join-Path ([Environment]::GetFolderPath('Desktop')) 'Interior_Design_Projects'),
-  [string]$MarketplaceRepo = '<owner>/interior-architect-studio',
+  [string]$MarketplaceRepo = 'dmatloub-creator/interior-architect-studio',
   [switch]$SkipApps
 )
 
