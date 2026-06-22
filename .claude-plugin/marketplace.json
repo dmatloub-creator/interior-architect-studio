@@ -1,0 +1,18 @@
+{
+  "name": "matloubian-studio",
+  "owner": {
+    "name": "Daniel J. Matloubian"
+  },
+  "metadata": {
+    "description": "Interior architecture studio — design-automation plugins for a Los Angeles General-B contracting firm.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "interior-architect-studio",
+      "source": "./interior-architect-studio",
+      "description": "Drafts 2D plans (FreeCAD), builds & renders 3D (Blender/EEVEE), turns photos/PDFs into renders/elevations/3D, sources materials, and produces BOMs and client decks. Interviews the designer first to lock intent. Portable across machines.",
+      "version": "0.1.0"
+    }
+  ]
+}

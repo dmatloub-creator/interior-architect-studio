@@ -1,0 +1,18 @@
+{
+  "name": "interior-architect-studio",
+  "version": "0.1.0",
+  "description": "Interior architecture studio for a Los Angeles General-B contracting firm: drafts 2D plans (FreeCAD), builds and renders 3D spaces (Blender/EEVEE), transforms photos/PDFs into renders, elevations and 3D, sources materials, and produces BOMs, spec sheets and client decks. Portable across a laptop and an NVIDIA workstation.",
+  "author": {
+    "name": "Daniel J. Matloubian"
+  },
+  "keywords": [
+    "interior-design",
+    "architecture",
+    "blender",
+    "freecad",
+    "rendering",
+    "construction",
+    "bom"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,13 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build / temp
+*.zip
+*.plugin
+__pycache__/
+*.pyc
+
+# Local test artifacts
+bridge_test_render.png
