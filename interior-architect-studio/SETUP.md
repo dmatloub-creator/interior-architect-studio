@@ -132,3 +132,55 @@ Install the engine plugin once per machine:
 - **Free Colab / SaaS free tiers** have session/usage limits and possible watermarks. **[MED]**
 - **Adobe generative ops** consume your Creative Cloud generative credits. **[MED]**
 - **Higgsfield/Runway** connectors are paid — left out of this free build. **[HIGH]**
+
+---
+
+## Appendix A — NVIDIA workstation: local ComfyUI for AI render (detailed, free)
+
+This is the full-power, no-cost AI-render path. Do it on the machine with the NVIDIA GPU.
+All software here is free/open-source.
+
+### A0. Prerequisites — **[HIGH]**
+- NVIDIA GPU with **8 GB+ VRAM** ideal for SDXL (6 GB works with tradeoffs; 12 GB+ great).
+- Current **NVIDIA Studio/Game Ready driver** installed.
+- ~30–50 GB free disk for models.
+
+### A1. Install ComfyUI — **[HIGH]**
+Easiest: the **ComfyUI Desktop** app for Windows from https://www.comfy.org/download (bundles
+Python/CUDA + ComfyUI-Manager). Alternative: the portable build from the ComfyUI GitHub
+releases. Launch it once; it serves at **http://127.0.0.1:8188**.
+
+### A2. Install ComfyUI-Manager — **[HIGH]**
+ComfyUI Desktop includes it. (Portable/source: `git clone
+https://github.com/ltdrdata/ComfyUI-Manager` into `ComfyUI/custom_nodes`, restart.) The
+Manager is how you install models and custom nodes via UI instead of hunting files.
+
+### A3. Download the models (free) — **[MED]** (names/links drift; use Manager's Model Manager)
+- **Checkpoint (interior-friendly SDXL):** e.g. *Juggernaut XL* or *RealVisXL* (free on
+  Civitai), or *Flux.1-dev* if you want top quality and have ≥12 GB VRAM. → `models/checkpoints`.
+- **ControlNet for SDXL:** install MLSD, Canny, and Depth. The *ControlNet-Union SDXL* model
+  covers several types in one file (simplest), or grab individual SDXL ControlNets. →
+  `models/controlnet`.
+- **Preprocessors:** install the **comfyui_controlnet_aux** custom node (provides MLSD / Canny /
+  Depth / Scribble preprocessors) via Manager → Custom Nodes.
+- M-LSD is the key one for interiors (straight-line/architecture preservation).
+
+### A4. Start ComfyUI + connect — **[MED-HIGH]**
+1. Launch ComfyUI (keep the window running) → confirm http://127.0.0.1:8188 loads.
+2. In Cowork: `/plugin marketplace add artokun/comfyui-mcp`. It **auto-detects** the local
+   instance — **no `COMFYUI_URL` needed** on this machine (that var is only for the laptop/Colab).
+3. Verify: ask the agent "list ComfyUI models" or run a tiny txt2img; it should respond.
+
+### A5. Image → 3D locally (optional) — **[MED]**
+Via Manager → Custom Nodes, install **ComfyUI-Hunyuan3D** (PBR + GLB) or a **TripoSR** node;
+download their weights when prompted. Output GLB → the `image-to-3d` skill imports it into Blender.
+
+### A6. Verify the full AI path — **[MED]**
+Drop an interior photo in a project's `06_reference/`, then ask:
+"Run photo-to-render: restage this as warm modern with Calacatta and layered lighting, keep the
+room structure (M-LSD)." Expect a PNG in `03_renders/`.
+
+### A7. Notes
+- Keep ComfyUI running while you design; the connector talks to it live.
+- First run downloads several GB of models — plan for it.
+- This machine can also use **Blender Cycles** (not just EEVEE) for hero renders, thanks to the GPU.
